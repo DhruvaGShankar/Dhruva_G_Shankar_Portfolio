@@ -1,0 +1,15 @@
+{
+  "policies": [
+    "baseline",
+    "cap_3",
+    "tax_2pct"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "max_steps": 300
+}
