@@ -55,4 +55,4 @@ Companies were segmented into three distinct groups based on their financial hea
    ```bash
    pip install kagglehub pandas numpy scikit-learn matplotlib seaborn
    ```
-3.Run the script in your preferred Python environment (e.g., Jupyter, Colab, or terminal). It will automatically fetch the dataset from Kaggle, execute the preprocessing pipeline, and display the Elbow and PCA plots.
+3. Run the script in your preferred Python environment (e.g., Jupyter, Colab, or terminal). It will automatically fetch the dataset from Kaggle, execute the preprocessing pipeline, and display the Elbow and PCA plots.
