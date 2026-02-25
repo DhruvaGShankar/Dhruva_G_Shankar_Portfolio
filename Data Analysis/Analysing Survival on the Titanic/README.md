@@ -1,59 +1,48 @@
-# Titanic Survival Analysis (EDA + Profiling)
+# Analyzing Survival on the Titanic 🚢🧊
 
-This project performs basic exploratory data analysis on the Titanic dataset, handles missing values, engineers a simple cabin-related feature, and generates an automated profiling report using `ydata-profiling`.
+This project focuses on cleaning, preprocessing, and performing Exploratory Data Analysis (EDA) on the classic Titanic dataset. The goal is to prepare the data for potential predictive modeling by handling missing values and generating a comprehensive, interactive data profile report.
 
-## What it does
+## 📋 Overview
 
-- Clones a public datasets repository containing the Titanic CSV
-- Loads the dataset into a Pandas DataFrame
-- Shows basic dataset info and missing-value counts (`head()`, `info()`, `isna().sum()`)
-- Cleans / imputes missing values:
-  - Fills missing `Age` with the median (robust to outliers)
-  - Fills missing `Embarked` with the mode (most frequent value)
-  - Creates `Has_Cabin` = `1` if `Cabin` is present else `0`, then drops `Cabin`
-- Generates a full HTML profiling report (`Analysis.html`) using `ydata-profiling`
+Using Python and the `ydata-profiling` library, this script automates the exploratory data analysis process. It addresses missing data using statistical methods and transforms sparse columns into usable features, ultimately outputting an interactive HTML report detailing the dataset's characteristics, correlations, and distributions.
 
-## Dataset source
+## 🧰 Tech Stack & Libraries
 
-The notebook clones:
+* **Python 3**
+* **Pandas & NumPy**: For data manipulation, feature engineering, and statistical imputation.
+* **Matplotlib & Seaborn**: For foundational data visualization support.
+* **YData Profiling (`ydata-profiling`)**: For generating automated, detailed, and interactive EDA reports.
 
-- `http://github.com/HarshvardhanSingh-13/Datasets`
+## 🗄️ Dataset
 
-and reads:
+The dataset used is `Titanic-Dataset.csv`, sourced from the following repository:
+* [HarshvardhanSingh-13/Datasets](http://github.com/HarshvardhanSingh-13/Datasets)
 
-- `/content/Datasets/Titanic_Dataset/Titanic-Dataset.csv`
+## 🧹 Data Cleaning & Preprocessing
 
-## Requirements
+A significant portion of this project revolves around handling missing data strategically to avoid skewing the dataset:
 
-- Python (Colab works out of the box)
-- Libraries:
-  - `pandas`, `numpy`
-  - `matplotlib`, `seaborn`
-  - `ydata-profiling`
+* **Age Imputation**: Missing values in the `Age` column were filled using the **median** age (28.0). The median was selected over the mean because it is more robust and unaffected by outliers in the age distribution.
+* **Embarked Imputation**: The `Embarked` column (port of embarkation) had a few missing values. These were filled using the **mode** ('S'). Because the vast majority of passengers embarked at 'S', adding a few more rows to this category had a negligible impact on the overall distribution.
+* **Cabin Feature Engineering**: The `Cabin` column contained a massive amount of missing data, making imputation impractical. Instead of dropping the information entirely, it was converted into a binary feature called `Has_Cabin` (1 if a cabin was listed, 0 if missing). The original `Cabin` column was then dropped.
 
+---
 
-## How to run (Google Colab)
+## 💡 Exploratory Data Analysis (EDA)
 
-1. Clone the datasets repo:
+Instead of manually plotting every variable, this project leverages **YData Profiling** to generate an automated, exhaustive analysis. 
+
+The script generates an interactive report (`Analysis.html`) that provides:
+* **Overview Statistics**: Total variables, missing cells, and duplicate rows.
+* **Variable Properties**: Distributions, distinct counts, and descriptive statistics for features like Fare, Age, and Survival.
+* **Interactions & Correlations**: Heatmaps and scatter plots showing how variables relate to one another (e.g., Class vs. Survival, Gender vs. Survival).
+* **Missing Values Analysis**: Visual matrices detailing data completeness.
+
+## 🚀 How to Run
+
+1. Clone the repository containing the script.
+2. Install the required dependencies:
    ```bash
-   !git clone http://github.com/HarshvardhanSingh-13/Datasets
-
-2.Install y-data profiling:
-
-```bash
-    !pip install ydata-profiling -q
-```
-
-3. Run the notebook cells to load, clean, and generate the report.
-
-## Outputs
-
-- **Analysis.html**  
-  An automated profiling report (distributions, correlations, missingness, warnings, sample rows)
-
-## Preprocessing notes
-
-- `Age` is filled with median \(28.0\) since median is less affected by outliers than mean
-- `Embarked` is filled with mode (commonly `S`) to preserve the most likely category
-- `Cabin` is high-missingness and text-based, so it’s converted into a simple indicator feature `Has_Cabin`
-
+   pip install pandas numpy matplotlib seaborn ydata-profiling
+   ```
+3. Run the script. It will automatically download the dataset via `git clone`, process the data, and generate `Analysis.html` in your working directory. Open this HTML file in any web browser to view the interactive report.
