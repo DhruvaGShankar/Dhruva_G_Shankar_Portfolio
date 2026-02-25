@@ -34,8 +34,6 @@ The analysis answers five primary questions about the Netflix catalog:
 ### 1. How has the distribution of content ratings changed over time?
 * **Insight:** After 2014, the share of TV-MA rated content grew rapidly, peaking around 2019. It remains the most prevalent rating for both movies and TV shows. TV-14 content also increased, but at a more gradual pace. This trend highlights a distinct shift toward more mature, adult-oriented programming on the platform.
 
-![Distribution of Content Over Time] (Data Analysis/Netflix Content Analysis/img/download (1).png)
-
 ### 2. Is there a relationship between content age and its type (Movie vs. TV Show)?
 * **Insight:** Netflix prioritizes recent releases, especially for TV shows, where most titles are added within roughly 20 years of their initial release. Movies exhibit a much broader age range (up to ~60 years old), indicating that Netflix still maintains a robust catalog of classic films alongside its newer content.
 
